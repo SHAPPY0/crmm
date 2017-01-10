@@ -1,0 +1,61 @@
+<!--page content-->
+<div class="clearfix"></div>
+<section class="middleSection margin30"  >
+	<div class="container">
+		
+		  <div class="row">
+		  	
+		  </div>
+		<div class="row">
+			<form method="post" enctype="multipart/form-data" ng-controller="MyCtrl as up" name="up.upload_form">
+			<div class="col-lg-3 col-md-3 col-sm-3">
+				<div class="userProfile" style="margin-bottom:40px; border:1px solid #ccc; padding:20px">
+					<img style="width:100px;" ngf-thumbnail="up.file || '/thumb.jpg'" />
+						<input type="file" ngf-select ng-model="up.file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB"  />
+			              
+			            	<i ng-show="up.upload_form.file.$error.required">*required</i><br>
+			            	<i ng-show="up.upload_form.file.$error.maxSize">File too large {{up.file.size / 1000000|number:1}}MB: max 20M</i> 
+			            	<p>{{up.progress}} </p>
+			            	<button  type="submit" class="btn btn-success" ng-click="up.submit()">Update</button>
+				 </div>
+				 </form>
+			</div>
+            <br>
+            <form method="put" enctype="multipart/form-data" ng-controller="profileUpdateCtrl" >
+			<div class="col-lg-9 col-md-9 col-sm-9">
+				<div class="pull-right">
+		  		<button class="btn btn-primary btn-xs" ng-click="hideshow()" ng-hide="showEditProfile"><i class="fa fa-pencil"></i><span>Edit Profile</span></button>
+		  		<button class="btn btn-danger btn-xs" ng-click="hideshow()" ng-show="showEditProfile"><i class="fa fa-time"></i><span>Cancel</span></button>
+		  	</div>
+				<div ng-hide="showEditProfile"> 
+				<div class="userdata">
+
+						<h3>Name:- <span>{{CurrentUser.name}}</span> </h3><br />
+						<p>Email:- <span>{{CurrentUser.email}}</span> </p><br />
+						<p>Status:- <span>{{CurrentUser.status}}</span>  </p>
+				</div>
+				<br />
+				 
+				</div>
+ 
+				<div ng-show="showEditProfile">
+					<div class="alert alert-success" ng-show="msg">
+					<a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+  				<strong>Success!</strong> Your Profile Updated Successfully</div>
+				 
+				<div class="userdata">
+						<h3><span></span><input type="text" class="form-control"  name="name" ng-model="CurrentUser.name"></h3><br />
+						<p><input type="text" class="form-control"   readonly name="email" ng-model="CurrentUser.email" ></p><br />
+						<p><input type="text" class="form-control"   ng-model="CurrentUser.status" ></p>
+				</div>
+				<br />
+				<div class="pull-right">
+					<button  type="submit" class="btn btn-success" ng-click="profileUpdate()">Update</button>
+				</div>
+				</div>
+			</div>
+			</form>
+		  </div>
+		</div>
+	</div>
+</section>

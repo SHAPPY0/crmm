@@ -1,0 +1,68 @@
+<!--page content-->
+<section class=" ">
+	<div class="clearfix"></div>
+	<div style="margin:30px 0px;height:71vh ">
+
+	<div class="container" ng-controller="dashboardCtrl" >
+		<h4><b>View Leads</b></h4><br />
+		<form method="post">
+		<div class="row" >
+			
+				<div class="col-lg-5 col-md-5">
+					<label>From</label>
+					<input type="date" class="form-control" ng-model="date.from" name="datefrom"  /> 
+				</div>
+				<div class="col-lg-5 col-md-5">
+					<label>To</label>
+					<input type="date" class="form-control" ng-model="date.to" name="dateto"  />
+					 
+				</div>
+				<div class="col-lg-2 col-md-2">
+					<button class="btn btn-primary " ng-click="getleaddate()">Go</button>
+				</div>
+				
+		
+		</div><br /><br />
+		<table class="table table-bordered table-repsonsive table-striped table-condensed">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Title</th>
+					<th>Company</th> 
+					<th>Mobile</th>
+					<th>Email</th>
+					<th>Lead Status</th>
+					<th>Date</th>
+					 <th style="text-align: center;">Action</th>
+				</tr>
+				<tr ng-repeat="data in res">
+					<td>{{data.salutation}} {{data.fname}} {{data.lname}}</td>
+					<td>{{data.title}}</td>
+					<td>{{data.company}}</td>
+					<td>{{data.mobile}}</td>
+					<td>{{data.email}}</td>
+					<td>{{data.lead}}</td>
+					<td>{{data.date | date}}</td>
+					<td style="text-align: center;"><a href="#/detail-lead/{{data._id}}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="javascript:void(0)" ng-click="deleteConf=!deleteConf" style="color: #f21010;"><i class="fa fa-times"></i></a> 
+					<div style="position: fixed;background: rgba(0, 0, 0, 0.59);top: 0;left: 0;width: 100%;z-index: 999;height: 100%;" ng-show="deleteConf">
+						<div style="background:#fff; width:350px; margin:10% auto">
+							<div style="background:#eee; padding:10px; border-bottom:1px solid #ccc"><b>CONFRIMATION</b></div>
+							<div style="padding:30px 10px;">Are you sure you want to delete this lead??</div>
+							<div style="background:#eee; padding:10px; border-bottom:1px solid #ccc">
+								<button class="btn btn-danger btn-xs" ng-click="removeLead(data._id)">Yes</button>&nbsp;&nbsp;<button class="btn  btn-xs" ng-click="deleteConf=!deleteConf">No</button>
+							</div>
+						</div>
+					</div>
+				</td>
+				</tr>
+			</thead>
+		</table>
+		<div class="form-group">
+			<button class="btn btn-success"  ng-click="generateCsv()"><i class="fa fa-download"></i>&nbsp;<span>Download CSV</span></button>
+		</div>
+			</form>
+	</div>
+</div>
+</section>
+ 

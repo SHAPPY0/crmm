@@ -1,0 +1,20 @@
+<!--page content-->
+<section class=" " ng-controller="csvCtrl ">
+	<div class="clearfix"></div>
+	<div style="margin:30px 0px ">
+	<div class="container">
+		<div class="alert alert-success" ng-show="success">
+			<a href="javascript:void(0)" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+  <strong>Success!</strong> CSV file Imported SuccessFully
+</div>
+<p style="margin:10px 0px;color:red">*Please Remove Header from your CSV File and then upload</p>
+		<form method="post" enctype="multipart/form-data"   >
+			{{data.length}}
+		  <input type="file" name="file" file-model="myFile" /><br />   
+		 <button class="btn btn-primary" ng-click="importcsv()">Import</button>
+		</form>
+	</div>
+	 
+</div>
+</section>
+ 

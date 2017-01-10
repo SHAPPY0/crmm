@@ -1,0 +1,35 @@
+<!--page content-->
+<section class="login_bg">
+	<div style="background:rgba(36, 35, 35, 0.62); height:100%">
+	<div class="container">
+		<div class="text-center" style="text-shadow: 1px 1px 3px #333;color:#f4e373; margin-top:20px;  letter-spacing:12px"><h1 style="font-size:35px;">
+			<b style="    border: 2px solid #ccc; color:#fff; padding:5px">SALES CRM</b></h1></div>
+		<form method="put">
+		<div class="loginPanel" ng-controller="loginCtrl">
+			<div class="loginPanelHeader">
+				Login Here
+			</div>
+			<div class="loginPanelBody">
+				<p style="margin-bottom:15px" class="text-center">Lorem Ipsum write here...</p>
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Email Id" name="email" ng-model="new.email" />
+					<i class="fa fa-envelope-o"></i>
+				</div>
+				<div class="form-group">
+					<input type="password" class="form-control" placeholder="Password" name="password" ng-model="new.password" />
+					<i class="fa fa-key"></i>
+					<div><input type="checkbox" id="remeber" /> <label for="remeber" style="font-weight:normal">Remeber me</label><span class="pull-right"><a href="#" style="color:#27bef1">Forget Password?</a></div>
+				</div>
+				<div class="margin30 text-center" style="margin-bottom:10px">Lorem ipsum is mostly a part of a Latin text by the part of a Latin text by the <a href="#/register" style="color:#27bef1">Register</a></div>
+			</div>
+			<div class="loginPanelFooter">
+				<div class="pull-right"><button class="btn btn-primary sc_loginBtn"  ng-click="login()">Login <i class="fa fa-unlock"></i></button></div>
+			</div>
+		</div>
+	</form>
+	</div>
+</div>
+</section>
+<style>
+#header, .footer{display:none;}
+</style>

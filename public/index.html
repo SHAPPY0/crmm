@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="salesCrm">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1" />
+<title>::Sales CRM::</title>
+
+<!--Stylesheets-->
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/sc-theme.css" rel="stylesheet" type="text/css" />
+<link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
+<link href="angular/loading-bar.css" rel="stylesheet" type="text/css" /> 
+<!--[if lt IE 9]>
+    <script src ="js/html5shiv.js"></script>
+    <script src ="js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+	<div class="se-pre-con"></div>
+<!-------header------>
+<header id="header">
+	<div class="container-fluid">
+			<div class="col-lg-3 col-md-3 col-sm-3 logo">
+				<div class="logo">
+				<a href="#/dashboard">	
+				<img src="assets/img/logo.png" />
+				</a>
+			</div>
+				</div>
+			<div class="col-lg-9 col-md-9 col-sm-9">
+<!---search panel-->
+<section class="search_panel">
+<form action="#" method="post" class="searchForm">
+	<input type="text" class="form-control" placeholder="Enter Search Keyword..." />
+	<button class="btn btn-primary sc_btn">Search</button>
+</form>
+</section>
+<!--//end search panel-->
+				<div class="loggedinUser pull-right" ng-controller="dashboardCtrl">
+					<a href="javascript:void(0)">
+						<div style="width:55px; height:55px; float:left;margin-right: 10px;">
+					<img src="{{CurrentUser.images}}" class="userAvatar" style="width:100%;height:55px" /> 
+					</div> 
+					<span class="text-center pull-right" ng-show="CurrentUser">Hi,<br />{{CurrentUser.name}}{{CurrentUser.role}}</span>
+					<span class="text-center pull-right" ng-hide="CurrentUser">Hi,<br />Guest</span> 
+					</a> 
+					<ul class="submenu" > 
+						<li><a href="#/profile"><i class="fa fa-user"></i> <span>My Profile</span></a></li>
+						<li><a href="#"><i class="fa fa-cogs"></i> <span>Account Settings</span></a></li>
+						<li><a href="#"><i class="fa fa-key"></i> <span>Change Password</span></a></li>
+						<li ng-controller="logoutCtrl"><a href="javascript:void(0)" style="background:#f4e373; color:#333!important" ng-click="logout()"><i class="fa fa-power-off"></i> <span>Logout</span></a></li>
+					</ul>
+					<ul class="submenu"   > 
+						<li><a href="#/profile"><i class="fa fa-user"></i> <span>My Profile</span></a></li>
+						<li><a href="#"><i class="fa fa-cogs"></i> <span>Account Settings</span></a></li>
+						<li><a href="#"><i class="fa fa-key"></i> <span>Change Password</span></a></li>
+						<li ng-controller="logoutCtrl"><a href="javascript:void(0)" style="background:#f4e373; color:#333!important" ng-click="logout()"><i class="fa fa-power-off"></i> <span>Logout</span></a></li>
+					</ul>
+				</div>
+				<div class="header_top_links pull-right">
+					<ul>
+						<li><a href="javascript:void(0)" class="searchIcon"><i class="fa fa-search"></i></a></li>
+						<li><a href="#"><i class="fa fa-bell"></i></a></li>
+						<li><a href="#"><i class="fa fa-cog"></i></a></li>
+					</ul>
+				</div>
+			</div> 
+	</div>
+	<div class="nav_strip">
+		<div class="container-fluid">
+		<nav class="menu">
+			<ul >
+					<li><a href="#/dashboard" class="activemenu"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+					<li ng-if="vaa==1"><a href="#"><i class="fa fa-users"></i> <span>Accounts</span></a>
+						<ul class="submenu">
+							<li><a href="#">Create Account</a></li>
+							<li><a href="#">View Account</a></li>
+							<li><a href="#">View Account Reports</a></li>
+							<li><a href="#">Import Account</a></li>
+						</ul>
+					</li>
+					<li><a href="javascript:void(0)"><i class="fa fa-chain"></i> <span>Contact</span></a>
+						<ul class="submenu">
+							<li><a href="#/add-contact">Create Contact</a></li>
+							<!--<li><a href="#">View Contact</a></li>
+							<li><a href="#">View Contact Reports</a></li>
+							<li><a href="#">Import Contact</a></li>-->
+						</ul>
+					</li>
+					<li><a href="#"><i class="fa fa-check-square-o"></i> <span>Leads</span></a>
+						<ul class="submenu">
+							<li><a href="#/addlead">Create Leads</a></li>
+							<li><a href="#/view-leads">View Leads</a></li>
+							<!--<li><a href="#">View Leads Reports</a></li>-->
+							<li><a href="#/csv">Import Leads</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><i class="fa fa-dot-circle-o"></i> <span>Targets</span></a>
+						<ul class="submenu">
+							<li><a href="#">Create Targets</a></li>
+							<li><a href="#">View Targets</a></li>
+							<li><a href="#">View Targets Reports</a></li>
+							<li><a href="#">Import Targets</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><i class="fa fa-list-alt"></i> <span>Target Lists</span></a>
+						<ul class="submenu">
+							<li><a href="#">Create Targets Lists</a></li>
+							<li><a href="#">View Targets Lists</a></li> 
+						</ul>
+					</li>
+					<li><a href="#"><i class="fa fa-slack"></i> <span>Campiagns</span></a>
+						<ul class="submenu">
+							<li><a href="#">Create Campiagns(Wizard)</a></li>
+							<li><a href="#">Create Campiagns(Classic)</a></li>
+							<li><a href="#">View Campiagns</a></li>
+							<li><a href="#">View Newsletters</a></li>
+							<li><a href="#">Create Email Templates</a></li>
+							<li><a href="#">View Email Templates</a></li>
+							<li><a href="#">Create Leads Form</a></li>
+							<li><a href="#">Monthly Customer Newsletter</a></li>
+						</ul>
+					</li>
+					<li><a href="#"><i class="fa fa-file-text"></i> <span>Reports</span></a>
+						<ul class="submenu">
+							<li><a href="#">Create Reports</a></li>
+							<li><a href="#">View Reports</a></li>
+							<li><a href="#">Manage Advance Reports</a></li>
+							<li><a href="#">My New Customer Accounts</a></li>
+						</ul>
+					</li>
+			</ul>
+			 
+			<div class="mobile_nav">
+				<i class="fa fa-navicon"></i>
+			</div>
+		</nav>
+	</div>
+	 
+	</div>
+	</div>
+</header>
+      
+
+<div ng-view></div>
+
+
+<!-----footer------>
+<div class="footer">
+<div class="container ">
+<p class="text-center">All Rights Reserved &copy; 2016, Mount Talent Consulting Pvt. Ltd.</p> 
+</div>
+</div>
+ <script src="assets/js/jquery.min.js"></script>
+ <script src="assets/js/jquery-ui.js"></script>
+ <script src="assets/js/angular.min.js"></script>
+  <script src="assets/js/angular-route.min.js"></script> 
+ <script src="angular/app.js"></script>
+ <script src="angular/angular-cookies.js"></script>
+  <script src="angular/controllers/userCtrl.js"></script>
+  <script src="angular/controllers/leadCtrl.js"></script>
+  <script src="angular/controllers/contactCtrl.js"></script>
+ <script src="assets/js/custom.js"></script>
+ <script src="assets/js/loading-bar.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script> 
+  <script src="assets/js/Chart.min.js"></script> 
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+  <script>
+$(window).load(function() {
+    $(".se-pre-con").fadeOut("slow");;
+  });
+
+</script>
+ 
+</body>
+</html>

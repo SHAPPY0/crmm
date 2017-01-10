@@ -1,0 +1,202 @@
+<!--page content-->
+<div class="clearfix"></div>
+<section class="middleSection margin30" ng-controller="dashboardCtrl" >
+	<div class="container-fluid">
+		<div class="row" id="sortable">
+			<div class="col-lg-6 col-md-6 col-sm-6" >
+				<div class=" panel"  >
+					<div class="panel-header">Top Leads</div>
+					<div class="panel-body">
+						<table class="table table-striped">
+							<thead>
+									<tr>
+										<th>Name</th>
+										<th>Type</td>
+										<th>Title</td>
+										<th>Email</th>
+										<th>Lead Source</th>
+										<th>Mobile</th>
+									</tr>
+							</thead>
+							<tbody>
+									<tr ng-show="res" ng-repeat="datas in res">
+										<td><a href="#/detail-lead/{{datas._id}}">{{datas.fname}}&nbsp;{{datas.lname}}</a></td>
+										<td>{{datas.lead}}</td>
+										<td>{{datas.title}}</td>
+										<td>{{datas.email}}</td>
+										<td>{{datas.lsource}}</td>
+										<td>{{datas.mobile}}</td>  
+									</tr>
+									
+
+									 
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-6 col-sm-6">
+				<div class=" panel" >
+					<div class="panel-header">Visits & Leads</div>
+					<div class="panel-body">
+						<img src="assets/img/chart.png" width="80%" />
+
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4" >
+				<div class=" panel">
+					<div class="panel-header">Top Leads</div>
+					<div class="panel-body">
+					<img src="assets/img/bnh.png" width="100%" />
+					</div>
+
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4">
+				<div class=" panel">
+					<div class="panel-header">Today's Tasks</div>
+					<div class="panel-body">
+						<div class="timeMeterPanel">
+							<div class="meterRow">
+								<div class="meterBody"></div>
+								<span class="timeSlot slot1"></span>
+								<span class="timeSlot slot2"></span>
+								<span class="timeSlot slot3"></span>
+								<span class="timeSlot slot4"></span>
+							</div>
+						</div>
+						 <div class="row">
+						 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+						 		<div class="todaystask">
+						 			<h4><a href="#">Todays task number 1</a></h4>
+						 			<h4><a href="#">Todays task number 1</a></h4>
+						 			<h4><a href="#">Todays task number 1</a></h4>
+						 			<h4><a href="#">Todays task number 1</a></h4>
+						 		</div>
+						 	</div>
+						 	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+
+								<div class="todaystask">
+									<h4><a href="#">Todays task number 1</a></h4>
+									<h4><a href="#">Todays task number 1</a></h4>
+									<h4><a href="#">Todays task number 1</a></h4>
+									<h4><a href="#">Todays task number 1</a></h4>
+									<h4><a href="#">Todays task number 1</a></h4>
+									<h4><a href="#">Todays task number 1</a></h4>
+									<h4><a href="#">Todays task number 1</a></h4>
+						 		</div>
+						 	</div>
+						 </div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4" >
+				<div class=" panel">
+					<div class="panel-header">Visits & Leads</div>
+					<div class="panel-body">
+							<table class="table table-striped">
+							<thead>
+									<tr>
+										<th>Name</th>
+										<th>Type</td>
+										<th>Mobile</th>
+										<th>Description</th>
+									</tr>
+							</thead>
+							<tbody>
+									<tr ng-repeat="data in datas">
+										<td>{{data.name}}</td>
+										<td>{{data.type}}</td>
+										<td>{{data.mobile}}</td>
+										<td>{{data.description}}</td>
+									</tr>
+							</tbody>
+						</table>
+						
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-4 col-md-4 col-sm-4">
+				<div class=" panel">
+					<div class="panel-header">Targets</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-6 col-xs-6">
+							<div class="tBlock">
+									<h1><b>3434+</b></h1>
+									<p>New Leads</p>
+
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-6">
+							<div class="tBlock">
+									<h1><b>123+</b></h1>
+									<p>Top Leads</p>
+
+							</div>
+						</div>
+						</div>
+							<div class="row">
+							<div class="col-md-6 col-xs-6">
+							<div class="tBlock">
+									<h1><b>987+</b></h1>
+									<p>Users</p>
+
+							</div>
+						</div>
+						<div class="col-md-6 col-xs-6">
+							<div class="tBlock">
+									<h1><b>3434+</b></h1>
+									<p>New Leads</p>
+
+							</div>
+						</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="col-lg-8 col-md-8 col-sm-8" >
+				<div class=" panel">
+					<div class="panel-header">Top Leads</div>
+					<div class="panel-body">
+						<table class="table table-striped">
+							<thead>
+									<tr>
+										<th>Name</th>
+										<th>Type</td>
+										<th>Mobile</th>
+										<th>Description</th>
+									</tr>
+							</thead>
+							<tbody>
+									<tr ng-show="res" ng-repeat="data in datas">
+										<td>{{data.name}}</td>
+										<td>{{data.type}}</td>
+										<td>{{data.mobile}}</td>
+										<td>{{data.description}}</td>
+									</tr>
+									 
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+			 
+		</div>
+	</div>
+</section>
